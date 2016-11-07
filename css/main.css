@@ -1,9 +1,14 @@
+body {
+  background: #ffb6c1;
+}
+
 .content {
+
   display: flex;
   width: 420px;
   height: 420px;
   margin: 0 auto;
-  border: 1px solid red;
+  margin-top: 100px;
 }
 
 table {
@@ -13,4 +18,35 @@ table {
 td {
   width: 140px;
   height: 140px;
+  padding: 0;
+  margin: 0;
+
+}
+
+#top-left {
+  background: #A0A0A0;
+}
+#top-center {
+  background: #C8C8C8;
+}
+#top-right {
+  background: #909090;
+}
+#middle-left {
+  background: #888888;
+}
+#middle-center{
+  background: #989898;
+}
+#middle-right{
+  background: #787878;
+}
+#bottom-left{
+  background: #D0D0D0;
+}
+#bottom-middle{
+  background: #707070;
+}
+#bottom-right {
+  background: #A8A8A8;
 }
