@@ -69,41 +69,43 @@
 	  note.stop();
 	};
 	
-	var note1 = new _note2.default(300, "square");
-	var note2 = new _note2.default(500, "sine");
-	var note3 = new _note2.default(400, "triangle");
-	var note4 = new _note2.default(700, "sawtooth");
-	var note5 = new _note2.default(200, "square");
-	var note6 = new _note2.default(800, "sine");
-	var note7 = new _note2.default(400, "triangle");
-	var note8 = new _note2.default(500, "sawtooth");
-	var note9 = new _note2.default(800, "square");
+	var note1 = new _note2.default(130.81, "sawtooth");
+	var note2 = new _note2.default(233.08, "sawtooth");
+	var note3 = new _note2.default(164.81, "sawtooth");
+	var note4 = new _note2.default(329.63, "sawtooth");
+	var note5 = new _note2.default(415.30, "sawtooth");
+	var note6 = new _note2.default(146.83, "sawtooth");
+	var note7 = new _note2.default(261.63, "sawtooth");
+	var note8 = new _note2.default(207.65, "sawtooth");
+	var note9 = new _note2.default(185, "sawtooth");
 	
-	(0, _jquery2.default)("#top-left").on("click", function () {
+	//C,D,E,F#,G#,A#,C
+	
+	(0, _jquery2.default)("#top-left").on("mouseenter", function () {
 	  return playNote(note1);
 	});
-	(0, _jquery2.default)("#top-center").on("click", function () {
+	(0, _jquery2.default)("#top-center").on("mouseenter", function () {
 	  return playNote(note2);
 	});
-	(0, _jquery2.default)("#top-right").on("click", function () {
+	(0, _jquery2.default)("#top-right").on("mouseenter", function () {
 	  return playNote(note3);
 	});
-	(0, _jquery2.default)("#middle-left").on("click", function () {
+	(0, _jquery2.default)("#middle-left").on("mouseenter", function () {
 	  return playNote(note4);
 	});
-	(0, _jquery2.default)("#middle-center").on("click", function () {
+	(0, _jquery2.default)("#middle-center").on("mouseenter", function () {
 	  return playNote(note5);
 	});
-	(0, _jquery2.default)("#middle-right").on("click", function () {
+	(0, _jquery2.default)("#middle-right").on("mouseenter", function () {
 	  return playNote(note6);
 	});
-	(0, _jquery2.default)("#bottom-left").on("click", function () {
+	(0, _jquery2.default)("#bottom-left").on("mouseenter", function () {
 	  return playNote(note7);
 	});
-	(0, _jquery2.default)("#bottom-center").on("click", function () {
+	(0, _jquery2.default)("#bottom-center").on("mouseenter", function () {
 	  return playNote(note8);
 	});
-	(0, _jquery2.default)("#bottom-right").on("click", function () {
+	(0, _jquery2.default)("#bottom-right").on("mouseenter", function () {
 	  return playNote(note9);
 	});
 
