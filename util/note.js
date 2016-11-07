@@ -1,10 +1,10 @@
 const ctx = new (window.AudioContext || window.webkitAudioContext)();
 
-const createOscillator = (freq) => {
+const createOscillator = (freq, type="sine", detune=0) => {
   const osc = ctx.createOscillator();
-  osc.type = "sine";
+  osc.type = "square";
   osc.frequency.value = freq;
-  osc.detune.value = 0;
+  osc.detune.value = detune;
   osc.start(ctx.currentTime);
   return osc;
 };
@@ -17,8 +17,8 @@ const createGainNode = () => {
 };
 
 class Note {
-  constructor(freq) {
-    this.oscillatorNode = createOscillator(freq);
+  constructor(freq, type, detune) {
+    this.oscillatorNode = createOscillator(freq, type, detune);
     this.gainNode = createGainNode();
     this.oscillatorNode.connect(this.gainNode);
   }
