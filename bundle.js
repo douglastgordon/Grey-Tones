@@ -69,6 +69,32 @@
 	  note.stop();
 	};
 	
+	var ORDER = ["#top-left", "#top-right", "#middle-right", "#bottom-left", "#middle-right", "#bottom-left"];
+	
+	var gameCount = 1;
+	
+	var playOrderedNote = function playOrderedNote(i, timeout) {
+	  setTimeout(function () {
+	    return (0, _jquery2.default)(ORDER[i]).trigger("mouseenter");
+	  }, timeout);
+	};
+	
+	var play = function play() {
+	  var timeout = 0;
+	  var i = 0;
+	  while (i < gameCount) {
+	    console.log(timeout);
+	    playOrderedNote(i, timeout);
+	    i += 1;
+	    timeout += 1000;
+	  }
+	  gameCount += 1;
+	};
+	
+	(0, _jquery2.default)(".play").on("click", function () {
+	  return play();
+	});
+	
 	var note1 = new _note2.default(130.81, "sawtooth");
 	var note2 = new _note2.default(233.08, "sawtooth");
 	var note3 = new _note2.default(164.81, "sawtooth");
@@ -78,8 +104,6 @@
 	var note7 = new _note2.default(261.63, "sawtooth");
 	var note8 = new _note2.default(207.65, "sawtooth");
 	var note9 = new _note2.default(185, "sawtooth");
-	
-	//C,D,E,F#,G#,A#,C
 	
 	(0, _jquery2.default)("#top-left").on("mouseenter", function () {
 	  return playNote(note1);
