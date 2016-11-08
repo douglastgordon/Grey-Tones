@@ -51,7 +51,15 @@ const note7 = new Note(261.63,"sawtooth");
 const note8 = new Note(207.65,"sawtooth");
 const note9 = new Note(185,"sawtooth");
 
-$("#top-left").on("mouseenter", () => playNote(note1));
+$("#top-left").on("mouseenter", () => {
+  playNote(note1);
+  $("#top-left").addClass("selected");
+  setTimeout(() => $("#top-left").removeClass("selected"), 1000);
+});
+
+
+
+
 $("#top-center").on("mouseenter", () => playNote(note2));
 $("#top-right").on("mouseenter", () => playNote(note3));
 $("#middle-left").on("mouseenter", () => playNote(note4));

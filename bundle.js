@@ -106,8 +106,13 @@
 	var note9 = new _note2.default(185, "sawtooth");
 	
 	(0, _jquery2.default)("#top-left").on("mouseenter", function () {
-	  return playNote(note1);
+	  playNote(note1);
+	  (0, _jquery2.default)("#top-left").addClass("selected");
+	  setTimeout(function () {
+	    return (0, _jquery2.default)("#top-left").removeClass("selected");
+	  }, 1000);
 	});
+	
 	(0, _jquery2.default)("#top-center").on("mouseenter", function () {
 	  return playNote(note2);
 	});
