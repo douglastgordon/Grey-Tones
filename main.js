@@ -18,7 +18,19 @@ const ORDER = [
   ".middle-right",
   ".bottom-left",
   ".middle-right",
-  ".bottom-left"
+  ".bottom-left",
+  ".bottom-right",
+  ".top-center",
+  ".top-center",
+  ".middle-right",
+  ".bottom-center",
+  ".middle-right",
+  ".bottom-left",
+  "top-right",
+  ".middle-right",
+  ".bottom-left",
+  "top-right",
+  ".middle-right"
 ];
 
 let gameCount = 0;
