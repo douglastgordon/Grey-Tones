@@ -69,7 +69,7 @@
 	  note.stop();
 	};
 	
-	var ORDER = [".top-left", ".top-right", ".middle-right", ".bottom-left", ".middle-right", ".bottom-left", ".bottom-right", ".top-center", ".top-center", ".middle-right", ".bottom-center", ".middle-right", ".bottom-left", "top-right", ".middle-right", ".bottom-left", "top-right", ".middle-right"];
+	var ORDER = [".top-left", ".top-right", ".middle-right", ".bottom-left", ".middle-right", ".bottom-left", ".bottom-right", ".top-center", ".top-center", ".middle-right", ".bottom-center", ".middle-right", ".bottom-left", "top-right", ".middle-right", ".bottom-left", "top-right", ".middle-right", ".bottom-left"];
 	
 	var gameCount = 0;
 	
