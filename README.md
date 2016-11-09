@@ -1,6 +1,6 @@
 # Grey Tones
 
-###[Live] (http://www.douglasgordon.me/CSS-Playground/)
+###[Live] (http://www.douglasgordon.me/Grey-Tones/)
 
 Grey Tones is a soothing, yet haunting simon-says game built using JavaScript and the AudioContext API.
 
