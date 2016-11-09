@@ -71,24 +71,72 @@
 	
 	var ORDER = [".top-left", ".top-right", ".middle-right", ".bottom-left", ".middle-right", ".bottom-left"];
 	
-	var gameCount = 1;
+	var gameCount = 0;
 	
 	var playOrderedNote = function playOrderedNote(i, timeout) {
 	  setTimeout(function () {
-	    return (0, _jquery2.default)(ORDER[i]).trigger("mouseenter");
+	    return (0, _jquery2.default)(ORDER[i]).trigger("click");
 	  }, timeout);
 	};
 	
 	var play = function play() {
+	  notesPlayed = [];
 	  var timeout = 0;
 	  var i = 0;
-	  while (i < gameCount) {
-	    console.log(timeout);
+	  while (i <= gameCount) {
 	    playOrderedNote(i, timeout);
 	    i += 1;
 	    timeout += 1000;
 	  }
 	  gameCount += 1;
+	  setTimeout(function () {
+	    return checkResponse();
+	  }, timeout + 2000);
+	};
+	
+	var checkResponse = function checkResponse() {
+	  // debugger
+	  console.log(ORDER.slice(0, gameCount).slice(0, notesPlayed.length - gameCount));
+	  console.log(notesPlayed.slice(gameCount));
+	  if (equal(notesPlayed, ORDER.slice(0, gameCount))) {
+	    setTimeout(function () {
+	      return play();
+	    }, 1000);
+	  } else if (trueEqual(ORDER.slice(0, gameCount).slice(0, notesPlayed.length - gameCount), notesPlayed.slice(gameCount))) {
+	    tooSlow();
+	  } else {
+	    wrong();
+	  }
+	};
+	
+	var gameOver = function gameOver() {
+	  gameCount = 0;
+	};
+	
+	var tooSlow = function tooSlow() {};
+	
+	var wrong = function wrong() {};
+	
+	var trueEqual = function trueEqual(x, y) {
+	  var i = 0;
+	  while (i < x.length) {
+	    if (x[i] !== y[i]) {
+	      return false;
+	    }
+	    i++;
+	  }
+	  return true;
+	};
+	
+	var equal = function equal(response, answer) {
+	  var i = 0;
+	  while (i < answer.length) {
+	    if (response[answer.length + i] !== answer[i]) {
+	      return false;
+	    }
+	    i++;
+	  }
+	  return true;
 	};
 	
 	(0, _jquery2.default)(".play").on("click", function () {
@@ -107,8 +155,11 @@
 	
 	var tilePairs = [[".top-left", note1], [".top-center", note2], [".top-right", note3], [".middle-left", note4], [".middle-center", note5], [".middle-right", note6], [".bottom-left", note7], [".bottom-center", note8], [".bottom-right", note9]];
 	
+	var notesPlayed = [];
+	
 	tilePairs.forEach(function (pair) {
-	  (0, _jquery2.default)(pair[0]).on("mouseenter", function () {
+	  (0, _jquery2.default)(pair[0]).on("click", function () {
+	    notesPlayed.push(pair[0]);
 	    playNote(pair[1]);
 	    (0, _jquery2.default)(pair[0]).addClass("selected");
 	    setTimeout(function () {

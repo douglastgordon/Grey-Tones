@@ -21,23 +21,75 @@ const ORDER = [
   ".bottom-left"
 ];
 
-let gameCount = 1;
+let gameCount = 0;
 
 const playOrderedNote = (i, timeout) => {
-  setTimeout(() => $(ORDER[i]).trigger("mouseenter"), timeout);
+  setTimeout(() => $(ORDER[i]).trigger("click"), timeout);
 };
 
 const play = () => {
+  notesPlayed = [];
   let timeout = 0;
   let i = 0;
-  while (i < gameCount) {
-    console.log(timeout);
+  while (i <= gameCount) {
     playOrderedNote(i, timeout);
     i += 1;
     timeout += 1000;
   }
   gameCount += 1;
+  setTimeout(() => checkResponse(), timeout+2000);
 };
+
+const checkResponse = () => {
+    // debugger
+    console.log(ORDER.slice(0, gameCount).slice(0, notesPlayed.length-gameCount));
+    console.log(notesPlayed.slice(gameCount));
+    if (equal(notesPlayed, ORDER.slice(0, gameCount))){
+      setTimeout(() => play(), 1000);
+    } else if (trueEqual(ORDER.slice(0, gameCount).slice(0, notesPlayed.length-gameCount), notesPlayed.slice(gameCount))){
+      tooSlow();
+    } else {
+      wrong();
+    }
+};
+
+
+const gameOver = () => {
+  gameCount = 0;
+
+};
+
+const tooSlow = () => {
+
+};
+
+const wrong = () => {
+
+};
+
+const trueEqual = (x,y) => {
+  let i = 0;
+  while (i < x.length){
+    if (x[i] !== y[i]){
+      return false;
+    }
+    i++;
+  }
+  return true;
+};
+
+const equal = (response, answer) => {
+  let i = 0;
+  while (i < answer.length){
+    if (response[answer.length+i] !== answer[i]){
+      return false;
+    }
+    i++;
+  }
+  return true;
+};
+
+
 
 $(".play").on("click",() => play());
 
@@ -64,8 +116,13 @@ const tilePairs = [
   [".bottom-right", note9]
 ];
 
+let notesPlayed = [];
+
+
+
 tilePairs.forEach((pair)=>{
-  $(pair[0]).on("mouseenter", () => {
+  $(pair[0]).on("click", () => {
+    notesPlayed.push(pair[0]);
     playNote(pair[1]);
     $(pair[0]).addClass("selected");
     setTimeout(() => $(pair[0]).removeClass("selected"), 1000);

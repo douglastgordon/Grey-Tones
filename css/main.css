@@ -10,12 +10,24 @@ body {
   margin: 0 auto;
 }
 
-h1 {
+h1{
   font-family: 'Shrikhand', cursive;
   font-size: 56px;
   margin: 0 auto;
   margin-top: 50px;
   margin-bottom: 20px;
+  color: white;
+  -webkit-text-stroke: 1px grey;
+}
+
+h2 {
+  font-family: 'Shrikhand', cursive;
+
+  font-size: 30px;
+  margin-top: 20px;
+  margin-bottom: 0;
+  display: block;
+  cursor: pointer;
   color: white;
   -webkit-text-stroke: 1px grey;
 }
@@ -33,7 +45,7 @@ td {
   transition: background-color 0.5s linear;
  -moz-transition: background-color 0.5s linear;
  -webkit-transition: background-color 0.5s linear;
- -ms-transition: background-color 0.5s linear; 
+ -ms-transition: background-color 0.5s linear;
 }
 
 td:hover {
