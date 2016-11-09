@@ -13,12 +13,12 @@ const stopNote = (note) => {
 };
 
 const ORDER = [
-  "#top-left",
-  "#top-right",
-  "#middle-right",
-  "#bottom-left",
-  "#middle-right",
-  "#bottom-left"
+  ".top-left",
+  ".top-right",
+  ".middle-right",
+  ".bottom-left",
+  ".middle-right",
+  ".bottom-left"
 ];
 
 let gameCount = 1;
@@ -51,20 +51,43 @@ const note7 = new Note(261.63,"sawtooth");
 const note8 = new Note(207.65,"sawtooth");
 const note9 = new Note(185,"sawtooth");
 
-$("#top-left").on("mouseenter", () => {
-  playNote(note1);
-  $("#top-left").addClass("selected");
-  setTimeout(() => $("#top-left").removeClass("selected"), 1000);
+
+const tilePairs = [
+  [".top-left", note1],
+  [".top-center", note2],
+  [".top-right", note3],
+  [".middle-left", note4],
+  [".middle-center", note5],
+  [".middle-right", note6],
+  [".bottom-left", note7],
+  [".bottom-center", note8],
+  [".bottom-right", note9]
+];
+
+tilePairs.forEach((pair)=>{
+  $(pair[0]).on("mouseenter", () => {
+    playNote(pair[1]);
+    $(pair[0]).addClass("selected");
+    setTimeout(() => $(pair[0]).removeClass("selected"), 1000);
+  });
 });
 
 
 
+// $(".top-left").on("mouseenter", () => {
+//   playNote(note1);
+//   $(".top-left").addClass("selected");
+//   setTimeout(() => $(".top-left").removeClass("selected"), 1000);
+// });
 
-$("#top-center").on("mouseenter", () => playNote(note2));
-$("#top-right").on("mouseenter", () => playNote(note3));
-$("#middle-left").on("mouseenter", () => playNote(note4));
-$("#middle-center").on("mouseenter", () => playNote(note5));
-$("#middle-right").on("mouseenter", () => playNote(note6));
-$("#bottom-left").on("mouseenter", () => playNote(note7));
-$("#bottom-center").on("mouseenter", () => playNote(note8));
-$("#bottom-right").on("mouseenter", () => playNote(note9));
+
+
+
+$(".top-center").on("mouseenter", () => playNote(note2));
+$(".top-right").on("mouseenter", () => playNote(note3));
+$(".middle-left").on("mouseenter", () => playNote(note4));
+$(".middle-center").on("mouseenter", () => playNote(note5));
+$(".middle-right").on("mouseenter", () => playNote(note6));
+$(".bottom-left").on("mouseenter", () => playNote(note7));
+$(".bottom-center").on("mouseenter", () => playNote(note8));
+$(".bottom-right").on("mouseenter", () => playNote(note9));

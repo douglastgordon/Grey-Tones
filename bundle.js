@@ -69,7 +69,7 @@
 	  note.stop();
 	};
 	
-	var ORDER = ["#top-left", "#top-right", "#middle-right", "#bottom-left", "#middle-right", "#bottom-left"];
+	var ORDER = [".top-left", ".top-right", ".middle-right", ".bottom-left", ".middle-right", ".bottom-left"];
 	
 	var gameCount = 1;
 	
@@ -105,36 +105,47 @@
 	var note8 = new _note2.default(207.65, "sawtooth");
 	var note9 = new _note2.default(185, "sawtooth");
 	
-	(0, _jquery2.default)("#top-left").on("mouseenter", function () {
-	  playNote(note1);
-	  (0, _jquery2.default)("#top-left").addClass("selected");
-	  setTimeout(function () {
-	    return (0, _jquery2.default)("#top-left").removeClass("selected");
-	  }, 1000);
+	var tilePairs = [[".top-left", note1], [".top-center", note2], [".top-right", note3], [".middle-left", note4], [".middle-center", note5], [".middle-right", note6], [".bottom-left", note7], [".bottom-center", note8], [".bottom-right", note9]];
+	
+	tilePairs.forEach(function (pair) {
+	  (0, _jquery2.default)(pair[0]).on("mouseenter", function () {
+	    playNote(pair[1]);
+	    (0, _jquery2.default)(pair[0]).addClass("selected");
+	    setTimeout(function () {
+	      return (0, _jquery2.default)(pair[0]).removeClass("selected");
+	    }, 1000);
+	  });
 	});
 	
-	(0, _jquery2.default)("#top-center").on("mouseenter", function () {
+	// $(".top-left").on("mouseenter", () => {
+	//   playNote(note1);
+	//   $(".top-left").addClass("selected");
+	//   setTimeout(() => $(".top-left").removeClass("selected"), 1000);
+	// });
+	
+	
+	(0, _jquery2.default)(".top-center").on("mouseenter", function () {
 	  return playNote(note2);
 	});
-	(0, _jquery2.default)("#top-right").on("mouseenter", function () {
+	(0, _jquery2.default)(".top-right").on("mouseenter", function () {
 	  return playNote(note3);
 	});
-	(0, _jquery2.default)("#middle-left").on("mouseenter", function () {
+	(0, _jquery2.default)(".middle-left").on("mouseenter", function () {
 	  return playNote(note4);
 	});
-	(0, _jquery2.default)("#middle-center").on("mouseenter", function () {
+	(0, _jquery2.default)(".middle-center").on("mouseenter", function () {
 	  return playNote(note5);
 	});
-	(0, _jquery2.default)("#middle-right").on("mouseenter", function () {
+	(0, _jquery2.default)(".middle-right").on("mouseenter", function () {
 	  return playNote(note6);
 	});
-	(0, _jquery2.default)("#bottom-left").on("mouseenter", function () {
+	(0, _jquery2.default)(".bottom-left").on("mouseenter", function () {
 	  return playNote(note7);
 	});
-	(0, _jquery2.default)("#bottom-center").on("mouseenter", function () {
+	(0, _jquery2.default)(".bottom-center").on("mouseenter", function () {
 	  return playNote(note8);
 	});
-	(0, _jquery2.default)("#bottom-right").on("mouseenter", function () {
+	(0, _jquery2.default)(".bottom-right").on("mouseenter", function () {
 	  return playNote(note9);
 	});
 
