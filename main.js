@@ -71,23 +71,3 @@ tilePairs.forEach((pair)=>{
     setTimeout(() => $(pair[0]).removeClass("selected"), 1000);
   });
 });
-
-
-
-// $(".top-left").on("mouseenter", () => {
-//   playNote(note1);
-//   $(".top-left").addClass("selected");
-//   setTimeout(() => $(".top-left").removeClass("selected"), 1000);
-// });
-
-
-
-
-$(".top-center").on("mouseenter", () => playNote(note2));
-$(".top-right").on("mouseenter", () => playNote(note3));
-$(".middle-left").on("mouseenter", () => playNote(note4));
-$(".middle-center").on("mouseenter", () => playNote(note5));
-$(".middle-right").on("mouseenter", () => playNote(note6));
-$(".bottom-left").on("mouseenter", () => playNote(note7));
-$(".bottom-center").on("mouseenter", () => playNote(note8));
-$(".bottom-right").on("mouseenter", () => playNote(note9));

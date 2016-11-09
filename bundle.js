@@ -116,38 +116,6 @@
 	    }, 1000);
 	  });
 	});
-	
-	// $(".top-left").on("mouseenter", () => {
-	//   playNote(note1);
-	//   $(".top-left").addClass("selected");
-	//   setTimeout(() => $(".top-left").removeClass("selected"), 1000);
-	// });
-	
-	
-	(0, _jquery2.default)(".top-center").on("mouseenter", function () {
-	  return playNote(note2);
-	});
-	(0, _jquery2.default)(".top-right").on("mouseenter", function () {
-	  return playNote(note3);
-	});
-	(0, _jquery2.default)(".middle-left").on("mouseenter", function () {
-	  return playNote(note4);
-	});
-	(0, _jquery2.default)(".middle-center").on("mouseenter", function () {
-	  return playNote(note5);
-	});
-	(0, _jquery2.default)(".middle-right").on("mouseenter", function () {
-	  return playNote(note6);
-	});
-	(0, _jquery2.default)(".bottom-left").on("mouseenter", function () {
-	  return playNote(note7);
-	});
-	(0, _jquery2.default)(".bottom-center").on("mouseenter", function () {
-	  return playNote(note8);
-	});
-	(0, _jquery2.default)(".bottom-right").on("mouseenter", function () {
-	  return playNote(note9);
-	});
 
 /***/ },
 /* 1 */
