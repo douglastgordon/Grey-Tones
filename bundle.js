@@ -73,26 +73,24 @@
 	
 	var gameCount = 0;
 	
-	var playOrderedNote = function playOrderedNote(i, timeout) {
-	  setTimeout(function () {
-	    return (0, _jquery2.default)(ORDER[i]).trigger("click");
-	  }, timeout);
-	};
-	
 	var play = function play() {
-	  (0, _jquery2.default)(".play").addClass("hidden");
-	  notesPlayed = [];
-	  var timeout = 0;
+	  var delay = 0;
 	  var i = 0;
 	  while (i <= gameCount) {
-	    playOrderedNote(i, timeout);
+	    playOrderedNote(i, delay);
 	    i += 1;
-	    timeout += 1000;
+	    delay += 1000;
 	  }
 	  gameCount += 1;
 	  setTimeout(function () {
 	    return checkResponse();
-	  }, timeout + timeout * 1.2);
+	  }, delay + delay * 1.2);
+	};
+	
+	var playOrderedNote = function playOrderedNote(i, delay) {
+	  setTimeout(function () {
+	    return (0, _jquery2.default)(ORDER[i]).trigger("click");
+	  }, delay);
 	};
 	
 	var checkResponse = function checkResponse() {
@@ -173,8 +171,14 @@
 	  return true;
 	};
 	
+	var beginGame = function beginGame() {
+	  (0, _jquery2.default)(".play").addClass("hidden");
+	  notesPlayed = [];
+	  play();
+	};
+	
 	(0, _jquery2.default)(".play").on("click", function () {
-	  return play();
+	  return beginGame();
 	});
 	
 	var note1 = new _note2.default(130.81, "sawtooth");

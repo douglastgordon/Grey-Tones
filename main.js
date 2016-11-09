@@ -36,22 +36,22 @@ const ORDER = [
 
 let gameCount = 0;
 
-const playOrderedNote = (i, timeout) => {
-  setTimeout(() => $(ORDER[i]).trigger("click"), timeout);
-};
+
 
 const play = () => {
-  $(".play").addClass("hidden");
-  notesPlayed = [];
-  let timeout = 0;
+  let delay = 0;
   let i = 0;
   while (i <= gameCount) {
-    playOrderedNote(i, timeout);
+    playOrderedNote(i, delay);
     i += 1;
-    timeout += 1000;
+    delay += 1000;
   }
   gameCount += 1;
-  setTimeout(() => checkResponse(), timeout+(timeout*1.2));
+  setTimeout(() => checkResponse(), delay+(delay*1.2));
+};
+
+const playOrderedNote = (i, delay) => {
+  setTimeout(() => $(ORDER[i]).trigger("click"), delay);
 };
 
 const checkResponse = () => {
@@ -124,9 +124,14 @@ const equal = (response, answer) => {
   return true;
 };
 
+const beginGame = () => {
+  $(".play").addClass("hidden");
+  notesPlayed = [];
+  play();
+};
 
 
-$(".play").on("click",() => play());
+$(".play").on("click",() => beginGame());
 
 const note1 = new Note(130.81,"sawtooth");
 const note2 = new Note(233.08,"sawtooth");
