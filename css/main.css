@@ -22,7 +22,6 @@ h1{
 
 h2 {
   font-family: 'Shrikhand', cursive;
-
   font-size: 30px;
   margin-top: 20px;
   margin-bottom: 0;
@@ -30,6 +29,16 @@ h2 {
   cursor: pointer;
   color: white;
   -webkit-text-stroke: 1px grey;
+}
+
+h3 {
+  font-family: 'Shrikhand', cursive;
+  font-size: 30px;
+  color: white;
+  -webkit-text-stroke: 1px grey;
+  margin: 0 auto;
+  top: 300px;
+  display: inline-block;
 }
 
 table {
@@ -53,6 +62,9 @@ td:hover {
   z-index: 1;
 }
 
+.hidden {
+  display: none;
+}
 
 
 

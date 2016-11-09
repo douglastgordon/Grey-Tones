@@ -28,6 +28,7 @@ const playOrderedNote = (i, timeout) => {
 };
 
 const play = () => {
+  $(".play").addClass("hidden");
   notesPlayed = [];
   let timeout = 0;
   let i = 0;
@@ -37,7 +38,7 @@ const play = () => {
     timeout += 1000;
   }
   gameCount += 1;
-  setTimeout(() => checkResponse(), timeout+2000);
+  setTimeout(() => checkResponse(), timeout+(timeout*1.2));
 };
 
 const checkResponse = () => {
@@ -45,6 +46,11 @@ const checkResponse = () => {
     console.log(ORDER.slice(0, gameCount).slice(0, notesPlayed.length-gameCount));
     console.log(notesPlayed.slice(gameCount));
     if (equal(notesPlayed, ORDER.slice(0, gameCount))){
+      if (gameCount == ORDER.length) {
+        win();
+        return;
+      }
+      goodRound();
       setTimeout(() => play(), 1000);
     } else if (trueEqual(ORDER.slice(0, gameCount).slice(0, notesPlayed.length-gameCount), notesPlayed.slice(gameCount))){
       tooSlow();
@@ -56,16 +62,32 @@ const checkResponse = () => {
 
 const gameOver = () => {
   gameCount = 0;
-
+  $(".play").removeClass("hidden");
 };
 
 const tooSlow = () => {
-
+  $(".slow").removeClass("hidden");
+  setTimeout(()=>$(".slow").addClass("hidden"), 1500);
+  gameOver();
 };
 
 const wrong = () => {
-
+  $(".wrong").removeClass("hidden");
+  setTimeout(()=>$(".wrong").addClass("hidden"), 1500);
+  gameOver();
 };
+
+const goodRound = () => {
+  $(".ok").removeClass("hidden");
+  setTimeout(()=>$(".ok").addClass("hidden"), 350);
+};
+
+const win = () => {
+  $(".win").removeClass("hidden");
+  setTimeout(()=>$(".win").addClass("hidden"), 2000);
+  gameOver();
+};
+
 
 const trueEqual = (x,y) => {
   let i = 0;

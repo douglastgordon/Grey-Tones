@@ -80,6 +80,7 @@
 	};
 	
 	var play = function play() {
+	  (0, _jquery2.default)(".play").addClass("hidden");
 	  notesPlayed = [];
 	  var timeout = 0;
 	  var i = 0;
@@ -91,7 +92,7 @@
 	  gameCount += 1;
 	  setTimeout(function () {
 	    return checkResponse();
-	  }, timeout + 2000);
+	  }, timeout + timeout * 1.2);
 	};
 	
 	var checkResponse = function checkResponse() {
@@ -99,6 +100,11 @@
 	  console.log(ORDER.slice(0, gameCount).slice(0, notesPlayed.length - gameCount));
 	  console.log(notesPlayed.slice(gameCount));
 	  if (equal(notesPlayed, ORDER.slice(0, gameCount))) {
+	    if (gameCount == ORDER.length) {
+	      win();
+	      return;
+	    }
+	    goodRound();
 	    setTimeout(function () {
 	      return play();
 	    }, 1000);
@@ -111,11 +117,39 @@
 	
 	var gameOver = function gameOver() {
 	  gameCount = 0;
+	  (0, _jquery2.default)(".play").removeClass("hidden");
 	};
 	
-	var tooSlow = function tooSlow() {};
+	var tooSlow = function tooSlow() {
+	  (0, _jquery2.default)(".slow").removeClass("hidden");
+	  setTimeout(function () {
+	    return (0, _jquery2.default)(".slow").addClass("hidden");
+	  }, 1500);
+	  gameOver();
+	};
 	
-	var wrong = function wrong() {};
+	var wrong = function wrong() {
+	  (0, _jquery2.default)(".wrong").removeClass("hidden");
+	  setTimeout(function () {
+	    return (0, _jquery2.default)(".wrong").addClass("hidden");
+	  }, 1500);
+	  gameOver();
+	};
+	
+	var goodRound = function goodRound() {
+	  (0, _jquery2.default)(".ok").removeClass("hidden");
+	  setTimeout(function () {
+	    return (0, _jquery2.default)(".ok").addClass("hidden");
+	  }, 350);
+	};
+	
+	var win = function win() {
+	  (0, _jquery2.default)(".win").removeClass("hidden");
+	  setTimeout(function () {
+	    return (0, _jquery2.default)(".win").addClass("hidden");
+	  }, 2000);
+	  gameOver();
+	};
 	
 	var trueEqual = function trueEqual(x, y) {
 	  var i = 0;
