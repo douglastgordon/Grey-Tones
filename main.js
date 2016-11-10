@@ -21,7 +21,6 @@ const ORDER = [
   ".bottom-left",
   ".bottom-right",
   ".top-center",
-  ".top-center",
   ".middle-right",
   ".bottom-center",
   ".middle-right",
