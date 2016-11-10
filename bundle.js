@@ -74,6 +74,7 @@
 	var gameCount = 0;
 	
 	var play = function play() {
+	  notesPlayed = [];
 	  var delay = 0;
 	  var i = 0;
 	  while (i <= gameCount) {

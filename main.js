@@ -39,6 +39,7 @@ let gameCount = 0;
 
 
 const play = () => {
+  notesPlayed = [];
   let delay = 0;
   let i = 0;
   while (i <= gameCount) {
